@@ -19,11 +19,11 @@ type Env = [(String, Integer, Integer)]
 
 
 main :: IO ()
-main = proj1Impl "." (Just 2)
+main = proj1 "." (Just 2)
 
 
-proj1Impl :: FilePath -> Maybe Int -> IO ()
-proj1Impl path depth = do
+proj1 :: FilePath -> Maybe Int -> IO ()
+proj1 path depth = do
   envs <- run path (depth // maxBound :: Int) []
   case envs of
       Left s -> print s
